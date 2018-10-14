@@ -2,20 +2,5 @@
 </head>
 
 <body>
-    <script src="socket.io/socket.io.js"></script>
-    <script>
-        var socket = io();
-        socket.on('connect', function() {
-            console.log('Conectado al servidor');
-        })
-
-        socket.emit('Mensaje', {
-            nombre: 'dani'
-        }, function(respuesta) {
-            console.log(respuesta);
-        })
-
-        socket.on('Mensaje2', function(datos) {
-            console.log('Datos:', datos);
-        })
-    </script>
+Hey
+</body>

@@ -28,6 +28,8 @@ app.use(bodyParser.json());
 
 
 app.use(express.static(path.resolve(__dirname, '../public')));
+// app.use(express.static(path.resolve(__dirname, './../../TodoList/dist/ftsock')));
+
 
 app.get('/api/hola', (req, res) => {
     console.log('Devuelto hola');
@@ -59,6 +61,10 @@ app.get('/api/usuario', (req, res) => {
         ok: true
     })
 })
+
+// Usuario.watch().on('change', change => {
+//     console.log('Cambio detectado', change);
+// })
 
 server.listen(3000, () => {
     console.log('Escuchando puerto: ', 3000);
