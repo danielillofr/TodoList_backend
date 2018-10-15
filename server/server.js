@@ -30,41 +30,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.resolve(__dirname, '../public')));
 // app.use(express.static(path.resolve(__dirname, './../../TodoList/dist/ftsock')));
 
-
-app.get('/api/hola', (req, res) => {
-    console.log('Devuelto hola');
-    res.json({
-        ok: true
-    })
-})
-
-const Usuario = require('./models/usuario');
-
-app.post('/api/usuario', (req, res) => {
-    let usuario = new Usuario({
-        nombre: 'Daniel',
-        apellidos: 'Fernan',
-        role: 'ADMIN_ROLE'
-    });
-    usuario.save((err, usuarioDB) => {
-        if (err) {
-            return res.json({
-                ok: false
-            })
-        }
-        res.json(usuarioDB)
-    })
-})
-
-app.get('/api/usuario', (req, res) => {
-    res.status(200).json({
-        ok: true
-    })
-})
-
-// Usuario.watch().on('change', change => {
-//     console.log('Cambio detectado', change);
-// })
+app.use(require('./routes/usuarios'));
 
 server.listen(3000, () => {
     console.log('Escuchando puerto: ', 3000);
