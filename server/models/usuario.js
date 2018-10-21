@@ -11,6 +11,10 @@ const usuarioSchema = new Schema({
     clave: {
         type: String,
         required: [true, 'La clave es obligatoria']
+    },
+    email: {
+        type: String,
+        require: [true, 'El email es obligatorio']
     }
 })
 
