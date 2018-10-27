@@ -23,7 +23,6 @@ app.get('/api/usuarios', Autentificar, function(req, res) {
             usuarios: usuariosDB
         })
     })
-
 })
 
 
@@ -54,7 +53,7 @@ app.post('/api/usuarios', (req, res) => {
             ok: true,
             usuario: usuarioDB
         });
-    })
+    });
 })
 
 //Login

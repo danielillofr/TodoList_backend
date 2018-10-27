@@ -31,6 +31,7 @@ app.use(express.static(path.resolve(__dirname, '../public')));
 // app.use(express.static(path.resolve(__dirname, './../../TodoList/dist/ftsock')));
 
 app.use(require('./routes/usuarios'));
+app.use(require('./routes/tareas'));
 
 server.listen(3000, () => {
     console.log('Escuchando puerto: ', 3000);
