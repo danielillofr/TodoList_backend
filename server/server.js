@@ -1,3 +1,5 @@
+require('./config/config');
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -14,7 +16,7 @@ module.exports = { io };
 
 require('./sockets/sockets')
 
-mongoose.connect('mongodb://localhost:27017/mean', (err) => {
+mongoose.connect(process.env.URLDB, (err) => {
     if (err) throw err;
     console.log('BASE DE DATOS ONLINE');
 })
@@ -33,6 +35,6 @@ app.use(express.static(path.resolve(__dirname, '../public')));
 app.use(require('./routes/usuarios'));
 app.use(require('./routes/tareas'));
 
-server.listen(3000, () => {
+server.listen(process.env.PORT, () => {
     console.log('Escuchando puerto: ', 3000);
 });
