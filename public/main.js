@@ -421,18 +421,20 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var ApihttpService = /** @class */ (function () {
+    //  env: String = 'http://localhost:3000';
     function ApihttpService(http) {
         this.http = http;
         this.logueado = false;
+        this.env = '';
     }
     ApihttpService.prototype.Solicitar_api = function () {
         console.log('Solicitando api en el servidcio');
         // return this.http.get('http://localhost:3000/api/hola');
-        return this.http.get('/api/hola');
+        return this.http.get(this.env + "/api/hola");
     };
     ApihttpService.prototype.solicitar_token = function (usuario, clave) {
         // return this.http.post('http://localhost:3000/api/usuarios/login', {nombre: usuario, clave});
-        return this.http.post('/api/usuarios/login', { nombre: usuario, clave: clave });
+        return this.http.post(this.env + "/api/usuarios/login", { nombre: usuario, clave: clave });
     };
     ApihttpService.prototype.solicitar_usuarios = function () {
         var opciones = {
@@ -441,7 +443,7 @@ var ApihttpService = /** @class */ (function () {
             })
         };
         // return this.http.get(`http://localhost:3000/api/usuarios`, opciones);
-        return this.http.get("/api/usuarios", opciones);
+        return this.http.get(this.env + "/api/usuarios", opciones);
     };
     ApihttpService.prototype.eliminar_usuario = function (id) {
         var opciones = {
@@ -450,7 +452,7 @@ var ApihttpService = /** @class */ (function () {
             })
         };
         // return this.http.delete(`http://localhost:3000/api/usuarios/${id}`, opciones);
-        return this.http.delete("/api/usuarios/" + id, opciones);
+        return this.http.delete(this.env + "/api/usuarios/" + id, opciones);
     };
     ApihttpService.prototype.modificar_usuario = function (id) {
         var opciones = {
@@ -459,7 +461,7 @@ var ApihttpService = /** @class */ (function () {
             })
         };
         // return this.http.put(`http://localhost:3000/api/usuarios/${id}`, {nombre: 'Nuevo nombre'}, opciones);
-        return this.http.put("/api/usuarios/" + id, { nombre: 'Nuevo nombre' }, opciones);
+        return this.http.put(this.env + "/api/usuarios/" + id, { nombre: 'Nuevo nombre' }, opciones);
     };
     ApihttpService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
